@@ -3,7 +3,7 @@ let weather = {
     fetchWeather: function(city){
         fetch(
         "https://api.openweathermap.org/data/2.5/weather?q="
-        + city 
+        + city
         +"&units=metric&appid=" 
         + this.apiKey
         )
@@ -18,9 +18,13 @@ let weather = {
   const { temp, feels_like, temp_min, temp_max,humidity } = data.main;
   const { speed } = data.wind;
   const { dt } = data;
+
+  const localTime = new Date(dt * 1000).toLocaleTimeString([], {hour: '2-digit', minute: '2-digit',hourCycle: 'h23'});
+  console.log(country);
   //console.log(name,country,icon,description,temp,temp_min, temp_max, humidity,speed,dt);
   document.querySelector(".city").innerText = "Weather in "+ name;
   document.querySelector(".country").innerText = country;
+  console.log(country);
   document.querySelector(".icon").src ="https://openweathermap.org/img/wn/" + icon +".png";
   document.querySelector(".description").innerText = description;
   document.querySelector(".temp").innerText = temp +"°C";
@@ -28,7 +32,7 @@ let weather = {
   document.querySelector(".temp-min").innerText = "temp-min: " + temp_min + "°C";
   document.querySelector(".humidity").innerText = "humidity: "+ humidity +"%";
   document.querySelector(".wind").innerText = "wind speed:"+speed+"km/h";
-  document.querySelector(".time-zone").innerText = "Local time:"+ dt;
+  document.querySelector(".time-zone").innerText = "Local time:"+ localTime;
   document.querySelector(".weather").classList.remove("loading");
   document.body.style.backgroundImage ="url('https://source.unsplash.com/1600x900/?"+ name + "')"
     },
@@ -47,3 +51,4 @@ document.querySelector(".search-bar")
         weather.search();
     }
 })
+
