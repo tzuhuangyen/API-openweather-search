@@ -19,18 +19,27 @@
         </div>
 
         <div class="weather loading">
-            <h2 class="city">Weather in London
-                <!-- <span class="country">UK</span> -->
-            <h1 class="temp">51°C</h1>
-            <h3 class="temp-max">Max-temp: 30°C</h3>
-            <h3 class="temp-min">Min-temp: 10°C</h3>
+            <div class="location">
+                <h2 class="city">Weather in London</h2>
+                <span>,</span>
+                <span class="country">UK</span>
+            </div>
+            <h1 class="temp">30°C</h1>
+            <div class="iconWeather">
+                <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+                <h3 class="temp-max">30°C</h3>
+            </div>
+            <div  class="iconWeather">
+                <svg stroke="currentColor" fill="currentColor" stroke-width="0" version="1.2" baseProfile="tiny" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10.5 20c-.861 0-1.71-.151-2.523-.451l-1.317-.485.89-1.087c1.275-1.56 1.95-3.454 1.95-5.477s-.675-3.917-1.951-5.477l-.89-1.087 1.317-.485c.814-.3 1.663-.451 2.524-.451 4.136 0 7.5 3.364 7.5 7.5s-3.364 7.5-7.5 7.5zm-.509-2.024c.169.016.339.024.509.024 3.032 0 5.5-2.468 5.5-5.5s-2.468-5.5-5.5-5.5c-.17 0-.34.008-.509.024.991 1.645 1.509 3.511 1.509 5.476s-.518 3.831-1.509 5.476z"></path></svg>
+                <h3 class="temp-min"> 10°C</h3>
+            </div>
             <div class="flex">
-                <img src="https://openweathermap.org/img/wn/01n.png" alt="" class="icon">
+                <img src="https://openweathermap.org/img/wn/01n@2x.png" alt="" class="icon">
                 <div class="description">cloudy</div>
             </div>
-            <div class="humidity"></div>
-            <div class="wind">windy speed : 6 km</div>
-            <div class="time-zone">28:00</div>
+            <div class="humidity">humidity:29%</div>
+            <!-- <div class="wind">windy speed : 6 km</div> -->
+            <!-- <div class="time-zone">Local time: 28:00</div> -->
         </div>
     </div>
 

@@ -12,27 +12,27 @@ let weather = {
     },
 
     displayWeather: function(data){
-  const { name } = data;
-//   const { country } = data.sys;
-  const { icon, description } = data.weather[0];
-  const { temp, feels_like, temp_min, temp_max,humidity } = data.main;
-  const { speed } = data.wind;
-  const { dt } = data;
+    const { name } = data;
+    const { country } = data.sys;
+    const { icon, description } = data.weather[0];
+    const { temp, feels_like, temp_min, temp_max,humidity } = data.main;
+    const { speed } = data.wind;
+    const { dt } = data;
 
-  const localTime = new Date(dt * 1000).toLocaleTimeString([], {hour: '2-digit', minute: '2-digit',hourCycle: 'h23'});
+    const localTime = new Date(dt * 1000).toLocaleTimeString([], {hour: '2-digit', minute: '2-digit',hourCycle: 'h23'});
   
-  //console.log(name,country,icon,description,temp,temp_min, temp_max, humidity,speed,dt);
+  console.log(name,country,icon,description,temp,temp_min, temp_max, humidity,speed,dt);
   document.querySelector(".city").innerText = "Weather in "+ name;
-//   document.querySelector(".country").innerText = country;
-//   console.log(country);
-  document.querySelector(".icon").src ="https://openweathermap.org/img/wn/" + icon +".png";
+  document.querySelector(".country").innerText = country;
+  console.log(country);
+  document.querySelector(".icon").src ="https://openweathermap.org/img/wn/" + icon +"@2x.png";
   document.querySelector(".description").innerText = description;
   document.querySelector(".temp").innerText = temp.toFixed(1) +"°C";
-  document.querySelector(".temp-max").innerText = "temp-max: " + temp_max.toFixed(1) + "°C";
-  document.querySelector(".temp-min").innerText = "temp-min: " + temp_min.toFixed(1) + "°C";
+  document.querySelector(".temp-max").innerText =  temp_max.toFixed(1) + "°C";
+  document.querySelector(".temp-min").innerText =  temp_min.toFixed(1) + "°C";
   document.querySelector(".humidity").innerText = "humidity: "+ humidity +"%";
-  document.querySelector(".wind").innerText = "wind speed:"+speed+"km/h";
-  document.querySelector(".time-zone").innerText = "Local time:"+ localTime;
+//   document.querySelector(".wind").innerText = "wind speed:"+speed+"km/h";
+//   document.querySelector(".time-zone").innerText = "Local time:"+ localTime;
   document.querySelector(".weather").classList.remove("loading");
   document.body.style.backgroundImage ="url('https://source.unsplash.com/1600x900/?"+ name + "')"
     },
