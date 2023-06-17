@@ -12,7 +12,8 @@ body {
 
 .flex {
   display: flex;
-  align-items: center;
+  justify-content: flex-start;
+  align-items: baseline;
 }
 
 .card {
@@ -84,24 +85,27 @@ body {
   font-size: 28px;
   color: white;
 }
-.weather .iconWeather {
-  display: flex;
-  align-items: baseline;
-  justify-content: flex-start;
-}
 .weather svg {
   margin-right: 12px;
 }
 .weather h1.temp {
   margin-top: 10px;
-  margin-bottom: 18px;
+  margin-bottom: 0;
 }
 .weather h3 {
   margin-bottom: 10px;
   margin-top: 0;
 }
-.weather .description {
+.weather .descriptionArea {
+  display: flex;
+  align-items: center;
+}
+.weather .descriptionArea .description {
   text-transform: capitalize;
   margin-left: 8px;
   font-size: 36px;
+}
+.weather .iconWeather {
+  display: flex;
+  align-items: baseline;
 }/*# sourceMappingURL=style.css.map */
