@@ -1,6 +1,13 @@
 # API-openweather-search
-The code is a JavaScript program that uses the OpenWeatherMap API to retrieve weather data for a specified location and display it on a webpage. The program uses the  `fetch`  method to send a GET request to the OpenWeatherMap API with a specified URL that includes the location and API key. 
- Once the response is received, the program uses the  `JSON.parse`  method to convert the response data from a JSON string to a JavaScript object. The program then calls the  `displayWeather`  function with the parsed data as an argument. 
- The  `displayWeather`  function retrieves specific data from the parsed object, such as the city name, country, weather icon, temperature, humidity, and wind speed. The function then uses the  `querySelector`  method to select specific HTML elements on the webpage and set their  `innerText`  property to the corresponding weather data. 
- The function also sets the  `src`  property of the weather icon element to the URL of the weather icon from the OpenWeatherMap API. The function removes the  `loading`  class from the weather element to display the weather data on the webpage. The function also sets the background image of the webpage to a random image from the Unsplash API that matches the city name. 
- Overall, the code is a simple implementation of the OpenWeatherMap API that retrieves and displays weather data for a specified location on a webpage.
+ The application allows users to search for the weather of a specific city and displays the relevant weather information on the screen. 
+ The application uses the OpenWeatherMap API to fetch weather data for the searched city.
+ 
+ The JavaScript code defines a  `weather`  object with an  `apiKey`  property, which stores the API key to access the OpenWeatherMap API. The  `weather`  object also contains two methods:  `fetchWeather()`  and  `displayWeather()` .
+ The  `fetchWeather()`  method takes a city name as an argument and fetches the weather data for that city using the OpenWeatherMap API. The fetched data is then passed to the  `displayWeather()`  method.
+
+ 
+ The search functionality is implemented using an event listener on the search button and the search bar. When the search button is clicked or the "Enter" key is pressed within the search bar, the  `weather.search()`  method is called, which in turn calls the  `fetchWeather()`  method with the value entered in the search bar.
+ 
+ The background image of the page is dynamically updated based on the searched city using the Unsplash API.
+ 
+ In summary, this code creates a simple weather application that allows users to search for the weather of a specific city and displays the relevant weather information on the screen. The application fetches weather data from the OpenWeatherMap API and dynamically updates the HTML elements and background image based on the searched city.
