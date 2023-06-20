@@ -37,11 +37,11 @@ let weather = {
     document.querySelector(".temp-min").innerText =  temp_min.toFixed(1) + "°C";
     document.querySelector(".humidity").innerText =  humidity + " %";
 //   document.querySelector(".wind").innerText = "wind speed:"+speed+"km/h";
-document.querySelector(".time").innerText = "Local time: "+ formattedTime;
-document.querySelector(".weather").classList.remove("loading");
-  document.body.style.backgroundImage ="url('https://source.unsplash.com/1600x900/?"+ name + "')"
+    document.querySelector(".time").innerText = "Local time: "+ formattedTime;
+    document.querySelector(".weather").classList.remove("loading");
+    document.body.style.backgroundImage ="url('https://source.unsplash.com/1600x900/?"+ name + "')"
     },
-    search: function(){
+    searchClear: function(){
     this.fetchWeather(document.querySelector(".search-bar").value);
     document.querySelector(".search-bar").value = ""; // clear the search bar
 
@@ -49,7 +49,7 @@ document.querySelector(".weather").classList.remove("loading");
 }
 
 document.querySelector(".search button").addEventListener("click",function(){
-    weather.search();
+    weather.searchClear();
 })
 
 document.querySelector(".search-bar")
