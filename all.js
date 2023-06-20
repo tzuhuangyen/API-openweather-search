@@ -10,9 +10,9 @@ let weather = {
         .then((res) => res.json())
         .then((data)=>this.displayWeather(data));
     },
-
-    displayWeather: function(data){
-    const { name, timezone, dt  } = data;
+    // displays weather data on the webpage
+    displayWeather: function(data) {
+    const { name, timezone, dt } = data;
     const { country } = data.sys;
     const { icon, description } = data.weather[0];
     const { temp, feels_like, temp_min, temp_max,humidity } = data.main;
@@ -24,11 +24,10 @@ let weather = {
     let hours = localTime.getUTCHours();
     let minutes = localTime.getUTCMinutes();
     let formattedTime = hours.toString().padStart(2, '0') + ':' + minutes.toString().padStart(2, '0');
-    console.log(localTime,formattedTime)
-
-    console.log(name,country,icon,description,temp,temp_min, temp_max, humidity,speed,timezone);
-
-    document.querySelector(".city").innerText = "Weather in "+ name;
+    console.log(name, country, icon, description, temp, temp_min, temp_max, humidity, speed, timezone);
+    
+    // display weather data on webpage
+    document.querySelector(".city").innerText = "Weather in " + name;
     document.querySelector(".country").innerText = country;
     document.querySelector(".icon").src ="https://openweathermap.org/img/wn/" + icon +"@2x.png";
     document.querySelector(".description").innerText = description;
@@ -36,25 +35,25 @@ let weather = {
     document.querySelector(".temp-max").innerText =  temp_max.toFixed(1) + "°C";
     document.querySelector(".temp-min").innerText =  temp_min.toFixed(1) + "°C";
     document.querySelector(".humidity").innerText =  humidity + " %";
-//   document.querySelector(".wind").innerText = "wind speed:"+speed+"km/h";
+    // document.querySelector(".wind").innerText = "wind speed:"+speed+"km/h";
     document.querySelector(".time").innerText = "Local time: "+ formattedTime;
     document.querySelector(".weather").classList.remove("loading");
     document.body.style.backgroundImage ="url('https://source.unsplash.com/1600x900/?"+ name + "')"
     },
-    searchClear: function(){
-    this.fetchWeather(document.querySelector(".search-bar").value);
-    document.querySelector(".search-bar").value = ""; // clear the search bar
-
+    // clears search bar and fetches weather data for the entered city
+    search: function() {
+        let searchBar = document.querySelector(".search-bar");
+        this.fetchWeather(searchBar.value);
+        searchBar.value = "";
    }
 }
-
-document.querySelector(".search button").addEventListener("click",function(){
-    weather.searchClear();
-})
-
-document.querySelector(".search-bar")
- .addEventListener( "keyup", function (event) {
-    if(event.key == "Enter"){
+ // event listener for search button click
+document.querySelector(".search button").addEventListener("click", function() {
+    weather.search();
+});
+ // event listener for enter key press in search bar
+document.querySelector(".search-bar").addEventListener("keyup", function(event) {
+    if (event.key == "Enter") {
         weather.search();
     }
 })
